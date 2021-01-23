@@ -1,5 +1,7 @@
 # programming-haskell
 プログラミングHaskell第2版　練習問題の回答です。
+書籍はラムダノートさんのサイトから購入可能です。
+https://www.lambdanote.com/products/haskell
 
 ### 1〜9章までの回答について
 こちらのgistにあります
