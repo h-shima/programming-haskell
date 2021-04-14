@@ -7,5 +7,5 @@ expr' = do t <- term
            do symbol "+"
               e <- expr'
               return (Add (Val t) e)
-           <|> return (Val t)
+            <|> return (Val t)
 
