@@ -36,5 +36,4 @@ instance Applicative Maybe' where
 instance Traversable Maybe' where
   -- traverse :: Applicative f => (a -> f b) -> Maybe a -> f (Maybe b)
   traverse _ Nothing' = pure Nothing'
-  traverse g (Just' x) = fmap Just' (g x)
-
+  traverse g (Just' x) = fmap Just' <*> g x
