@@ -1,3 +1,5 @@
+import Data.Monoid
+
 instance (Monoid a, Monoid b) => Monoid (a, b) where
   -- mempty :: (a, b)
   mempty = (mempty, mempty)
