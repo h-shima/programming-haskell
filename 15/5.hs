@@ -1,10 +1,15 @@
 data Tree a = Leaf | Node (Tree a) a (Tree a) deriving Show
 
--- repeat :: a -> [a]
--- repeat x = xs where xs = x:xs
--- ここで止まってる、木をrepeatするっていう概念がわからない
-repeat :: Tree a -> [Tree a]
+repeat :: Tree a -> Tree a
+repeat Leaf = Leaf
+repeat (Node l x r) = Node (repeat (Node l x r)) x (repeat (Node l x r))
 
-repeat Leaf = xs where xs = Leaf:xs
-repeat (Node l x r) = xs where xs = (Node l x r):xs
+take :: Int -> Tree a -> Tree a
+-- 本当は、0を渡した場合は失敗してほしいが、型を直すのが面倒なのでLeafを返すことにした
+take 0 _ = Leaf 
+take n Leaf         = Leaf
+take n (Node l x r) = Node (take (n-1) l) x (take (n-1) r)
+
+replicate :: Int -> Tree a -> Tree a
+replicate n = take n . repeat
 
